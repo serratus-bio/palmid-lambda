@@ -1,17 +1,9 @@
-# from flask import Flask
-#
-# app = Flask(__name__)
-#
-# @app.route('/')
-# def hello_world():
-#     return 'Hello World!'
-#
-# if __name__ == '__main__':
-#     app.run()
-
 import sys
 import os
 import subprocess
+import base64
+import json
+
 
 def handler(event, context):
     print('## ENVIRONMENT VARIABLES')
@@ -30,6 +22,5 @@ def handler(event, context):
         pass
 
     subprocess.call(['sh', '/home/palmid/palmid.sh', '-i', './waxsys.fa', '-o', './data'])
-    dirlist = os.listdir("./data")
-
-    return 'Hello from AWS Lambda using Python' + sys.version + '! '+dirlist
+    html_report = open("./data/waxsys_geo.html", "rb").read()
+    return base64.b64encode(html_report)
