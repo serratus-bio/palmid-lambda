@@ -22,9 +22,9 @@ def analyze_sequence(sequence):
     text_file.write(sequence)
     text_file.close()
 
-    subprocess.call(['sh', '/home/palmid/palmid.sh', '-i', '/tmp/waxsys.fa', '-o', 'waxsys', '-d', '/tmp/data'])
+    subprocess.call(['sh', '/home/palmid/palmid.sh', '-i', '/tmp/waxsys.fa', '-o', 'waxsys', '-d', '/tmp'])
 
-    result_html = "/tmp/data/waxsys.nb.html"
+    result_html = "/tmp/waxsys.nb.html"
     return result_html
 
 
