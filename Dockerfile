@@ -1,4 +1,4 @@
-FROM palmid:latest
+FROM serratusbio/palmid:latest
 
 ENV LAMBDA_TASK_ROOT=./
 
@@ -9,6 +9,7 @@ COPY ./app/app.py ${LAMBDA_TASK_ROOT}
 # from your project folder.
 
 COPY requirements.txt  .
-RUN pip3 install -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
+RUN pip3 install -r requirements.txt --target "${LAMBDA_TASK_ROOT}" && \
+    mkdir -p /tmp/data
 
 CMD [ "app.handler" ]
