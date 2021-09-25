@@ -34,5 +34,5 @@ def put_report_to_s3(filename, file):
 
     encoded_string = string.encode("utf-8")
     s3 = boto3.resource("s3")
-    s3.Bucket('openvirome.com').put_object(Key=result_filename, Body=encoded_string)
+    s3.Bucket('openvirome.com').put_object(Key=result_filename, Body=encoded_string, ContentType='text/html')
     return result_filename
