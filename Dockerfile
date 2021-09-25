@@ -3,7 +3,7 @@ FROM serratusbio/palmid:latest
 ENV LAMBDA_TASK_ROOT=./
 
 # Copy function code
-COPY ./app/app.py ${LAMBDA_TASK_ROOT}
+COPY ./app/ ${LAMBDA_TASK_ROOT}
 
 # Install the function's dependencies using file requirements.txt
 # from your project folder.
