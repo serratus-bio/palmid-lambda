@@ -13,14 +13,14 @@ def handler(event, context):
     print('## CONTEXT')
     print(context)
 
-    text_file = open("./waxsys.fa", "w")
+    text_file = open("/tmp/waxsys.fa", "w")
     text_file.write(event['sequence'])
     text_file.close()
     try:
-        os.makedirs('./data')
+        os.makedirs('/tmp/data')
     except OSError:
         pass
 
-    subprocess.call(['sh', '/home/palmid/palmid.sh', '-i', './waxsys.fa', '-o', './data'])
-    html_report = open("./data/waxsys_geo.html", "rb").read()
+    subprocess.call(['sh', '/home/palmid/palmid.sh', '-i', '/tmp/waxsys.fa', '-o', '/tmp/data'])
+    html_report = open("/tmp/data/waxsys_geo.html", "rb").read()
     return base64.b64encode(html_report)
