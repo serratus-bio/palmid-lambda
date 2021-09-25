@@ -2,7 +2,6 @@ import boto3
 import os
 import subprocess
 
-
 def handler(event, context):
     print('## ENVIRONMENT VARIABLES')
     print(os.environ)
@@ -24,7 +23,9 @@ def analyze_sequence(sequence):
     text_file.close()
 
     subprocess.call(['sh', '/home/palmid/palmid.sh', '-i', '/tmp/waxsys.fa', '-o', 'waxsys', '-d', '/tmp/data'])
-    return "/tmp/data/waxsys.nb.html"
+
+    result_html = "/tmp/data/waxsys.nb.html"
+    return result_html
 
 
 def put_report_to_s3(filename, file):
