@@ -6,7 +6,7 @@ DOCKER_BUILDKIT=0 docker build -t palmid-lambda:latest .
 
 Run it:
 ```
-docker run -p 9000:8080 palmid-lambda:latest
+docker run -e AWS_SECRET_ACCESS_KEY=[MY_SECRET] -e AWS_ACCESS_KEY_ID=[MY_ACCESS_KEY] -p 9000:8080 palmid-lambda:latest
 ```
 
 
