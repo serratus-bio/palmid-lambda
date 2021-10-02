@@ -18,13 +18,13 @@ def handler(event, context):
 
 
 def analyze_sequence(sequence):
-    text_file = open("/tmp/waxsys.fa", "w")
+    text_file = open("/tmp/submission.fa", "w")
     text_file.write(sequence)
     text_file.close()
 
-    subprocess.call(['sh', '/home/palmid/palmid.sh', '-i', '/tmp/waxsys.fa', '-o', 'waxsys', '-d', '/tmp'])
+    subprocess.call(['sh', '/home/palmid/palmid.sh', '-i', '/tmp/submission.fa', '-o', 'submission', '-d', '/tmp'])
 
-    result_html = "/tmp/waxsys.nb.html"
+    result_html = "/tmp/submission.nb.html"
     return result_html
 
 
