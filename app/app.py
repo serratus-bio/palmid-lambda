@@ -12,6 +12,7 @@ def handler(event, context):
     print('## EVENT')
     print('')
     print(event)
+    print('')
     print('## CONTEXT')
     print('')
     print(context)
@@ -19,7 +20,7 @@ def handler(event, context):
 
     input_fasta = write_fasta(event['sequence'])
 
-    upload_fasta = put_report_to_s3(event['hash'], input_fasta)
+    upload_fasta = put_fasta_to_s3(event['hash'], input_fasta)
 
     result_html = analyze_sequence(input_fasta)
 
