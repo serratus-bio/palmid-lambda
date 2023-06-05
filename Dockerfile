@@ -54,7 +54,11 @@ ADD https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/latest
 COPY entry.sh /
 COPY requirements.txt  .
 RUN pip3 install -r requirements.txt --target "${LAMBDA_TASK_ROOT}" && \
-    mkdir -p /tmp/data && mv /usr/bin/python /usr/bin/python2 && ln -sf /usr/bin/python3 /usr/bin/python && ln -sf /usr/bin/python3 /usr/local/bin/python && alias python=python3 && chmod 755 /usr/bin/aws-lambda-rie /entry.sh
+    mkdir -p /tmp/data &&\
+    ln -sf /usr/bin/python3 /usr/bin/python &&\
+    ln -sf /usr/bin/python3 /usr/local/bin/python &&\
+    alias python=python3 &&\
+    chmod 755 /usr/bin/aws-lambda-rie /entry.sh
 
 ENTRYPOINT [ "/entry.sh" ]
 #ENTRYPOINT [ "python3", "-m", "awslambdaric" ]

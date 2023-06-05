@@ -21,7 +21,9 @@ curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d
 
 Tag it:
 ```
-sudo docker tag palmid-lambda:latest 797308887321.dkr.ecr.us-east-1.amazonaws.com/palmid-lambda:latest
+sudo docker tag palmid-lambda:latest 797308887321.dkr.ecr.us-east-1.amazonaws.com/palmid-lambda:0.0.6
+
+sudo docker tag palmid-lambda:latest 797308887321.dkr.ecr.us-east-1.amazonaws.com/palmid-lambda:latest 
 ```
 
 Login to ECR (needs `aws configure` in beforehand):
